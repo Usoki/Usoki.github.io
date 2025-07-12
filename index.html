@@ -25,10 +25,10 @@
 
     const data = { name, email };
 
-    fetch("https://script.google.com/macros/s/AKfycbyQpZQ-ZhjmI6QQoTz2QHZUqOHmT5o6h6lhc6epSJBVHNN-1ZTch2vm8_1SPFeU33utTQ/exec", {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
+fetch("https://script.google.com/macros/s/AKfycbyQpZQ-ZhjmI6QQoTz2QHZUqOHmT5o6h6lhc6epSJBVHNN-1ZTch2vm8_1SPFeU33utTQ/exec", {
+  method: "POST",
+  body: JSON.stringify(data)
+})
     .then(res => {
       if (res.ok) {
         window.location.href = "awareness.html";
