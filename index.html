@@ -2,43 +2,37 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>السحب التوعوي</title>
+  <title>شارك في السحب التوعوي</title>
 </head>
 <body>
   <h2>🎁 شارك في السحب التوعوي</h2>
   <form id="emailForm">
-    <label for="name">الاسم:</label><br>
-    <input type="text" name="name" required><br><br>
-
     <label for="email">البريد الإلكتروني:</label><br>
     <input type="email" name="email" required><br><br>
-
     <button type="submit">إرسال</button>
   </form>
 
   <script>
-  document.getElementById("emailForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.querySelector("input[name='name']").value;
-    const email = form.querySelector("input[name='email']").value;
+    document.getElementById("emailForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[name="email"]').value;
+      const data = { email };
 
-    const data = { name, email };
-
-fetch("https://script.google.com/macros/s/AKfycbyQpZQ-ZhjmI6QQoTz2QHZUqOHmT5o6h6lhc6epSJBVHNN-1ZTch2vm8_1SPFeU33utTQ/exec", {
-  method: "POST",
-  body: JSON.stringify(data)
-})
-    .then(res => {
-      if (res.ok) {
-        window.location.href = "awareness.html";
-      } else {
-        alert("حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
-      }
-    })
-    .catch(error => {
-      alert("فشل الاتصال بالخادم. تأكد من صحة الرابط.");
-      console.error(error);
+      fetch("https://script.google.com/macros/s/AKfycbyQpZQ-ZhjmI6QQoTz2QHZUqOHmT5o6h6lhc6epSJBVHNN-1ZTch2vm8_1SPFeU33utTQ/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (res.ok) {
+          window.location.href = "awareness.html";
+        } else {
+          alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+        }
+      })
+      .catch(error => {
+        alert("فشل الاتصال بالخادم، تأكد من صحة الرابط");
+        console.error(error);
       });
     });
   </script>
