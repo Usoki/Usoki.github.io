@@ -6,49 +6,49 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-      background-color: #f9f9f9;
+      margin: 0;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
-    .logo img {
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+    }
+    img.logo {
       max-width: 150px;
       margin-bottom: 20px;
     }
-
-    .intro-text {
+    .message {
       font-size: 18px;
-      margin-bottom: 30px;
-      color: #333;
+      margin-bottom: 25px;
     }
-
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
     input[type="text"],
     input[type="email"] {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
     }
-
     button {
-      background-color: #28a745;
-      color: white;
-      padding: 12px 20px;
+      padding: 10px 25px;
       font-size: 16px;
       border: none;
-      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
-
     button:hover {
-      background-color: #218838;
+      background-color: #0056b3;
     }
   </style>
 </head>
