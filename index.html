@@ -1,40 +1,105 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>شارك في السحب التوعوي</title>
+  <title>Big Surprise</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f9f9f9;
+    }
+
+    .logo img {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-  <h2>🎁 شارك في السحب التوعوي</h2>
+
+  <div class="logo">
+    <img src="logo.png" alt="Company Logo">
+  </div>
+
+  <p class="intro-text">
+    This is just a small gift. You deserve it 🎁<br>
+    A gift presented to you by <strong>Zahid Group</strong>.<br>
+    Thank you for being part of the <strong>#Zahid Family</strong>.
+  </p>
+
   <form id="emailForm">
-    <label for="email">البريد الإلكتروني:</label><br>
-    <input type="email" name="email" required><br><br>
-    <button type="submit">إرسال</button>
+    <label for="name">Name or phone number:</label><br>
+    <input type="text" name="name" required><br>
+
+    <label for="email">Email address:</label><br>
+    <input type="email" name="email" required><br>
+
+    <button type="submit">Submit</button>
   </form>
 
   <script>
     document.getElementById("emailForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const form = e.target;
-      const email = form.querySelector('input[name="email"]').value;
-      const data = { email };
+      const name = form.querySelector("input[name='name']").value;
+      const email = form.querySelector("input[name='email']").value;
+
+      const data = { name, email };
 
       fetch("https://script.google.com/macros/s/AKfycbyQpZQ-ZhjmI6QQoTz2QHZUqOHmT5o6h6lhc6epSJBVHNN-1ZTch2vm8_1SPFeU33utTQ/exec", {
         method: "POST",
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
       .then(res => {
         if (res.ok) {
           window.location.href = "awareness.html";
         } else {
-          alert("حدث خطأ أثناء الإرسال، حاول مرة أخرى.");
+          alert("Error submitting the form. Please try again.");
         }
       })
       .catch(error => {
-        alert("فشل الاتصال بالخادم، تأكد من صحة الرابط");
+        alert("Failed to connect to the server. Please check the URL.");
         console.error(error);
       });
     });
   </script>
+
 </body>
 </html>
